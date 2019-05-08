@@ -1,0 +1,87 @@
+" Mappings {{{
+
+" Leaders {{{
+    let mapleader = ","         " Use comma instead of \
+    let maplocalleader = "\\"   " localleader can be \ cuz nobody ever uses it
+" }}}
+
+" Escape {{{
+    inoremap jk <esc> 
+    vnoremap jk <esc> 
+" }}}
+
+" Movement {{{
+    
+    " j/k should move down wrapped lines {{{
+    nnoremap <expr> j v:count ? 'j' : 'gj'
+    nnoremap <expr> k v:count ? 'k' : 'gk'
+    vnoremap <expr> j v:count ? 'j' : 'gj'
+    vnoremap <expr> k v:count ? 'k' : 'gk'
+    "}}}
+
+    " Faster Scrolling {{{
+    nnoremap <C-Y> 2<C-Y>
+    vnoremap <C-Y> 2<C-Y>
+    nnoremap <C-E> 2<C-E>
+    vnoremap <C-E> 2<C-E>
+    " }}}
+
+" }}}
+
+" Quick Edit {{{
+    nnoremap <leader>ev :sp $MYVIMRC<cr>
+    nnoremap <leader>sv :source $MYVIMRC<cr>
+" }}}
+
+" File Browser {{{
+    " Split below
+    nnoremap <leader>se :Sexplore<cr>
+    " Split right
+    nnoremap <leader>ve :Vexplore<cr>
+    " Buffer
+    nnoremap <leader>e :Explore<cr>
+" }}}
+
+" Buffers {{{
+    " 'Interactive' buffer select
+    nnoremap <leader>b :buffers<CR>:buffer<Space>
+    " Open previous buffer in a split (split buffer)
+    nnoremap <leader>sb :silent execute "rightbelow split " . bufname("#")<cr>
+" }}}
+
+" }}}
+
+" Abbreviations {{{
+
+" }}}
+
+" Settings {{{
+
+" Search {{{
+    set incsearch       " Search as you type
+    set hlsearch        " Highlights search matches
+    set ignorecase      " Case insensitive
+    set smartcase       " Case sensititve if using caps
+    " Turn off highlighting
+    nnoremap <leader><space> :nohlsearch<cr>
+" }}}
+
+" Folding {{{
+    set foldenable      " Enable Folding
+    set foldnestmax=5  " 5 nested folds max
+    set foldmethod=marker   " Fold on {{{}}}
+    set foldlevelstart=20 " Folds open by default
+" }}}
+
+" Buffers and Splits {{{
+    set hidden          " Allow buffer switching without writing edits
+    set splitright
+    set splitbelow
+" }}}
+
+" Drawing {{{
+    set updatetime=500
+    set nolazyredraw      " Redraw the screen only when necessary
+" }}}
+
+" }}}
